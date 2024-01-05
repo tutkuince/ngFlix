@@ -2,9 +2,11 @@
   .slide {
     width: 100%;
     position: relative;
+
     &-bg {
       height: 35rem;
       position: relative;
+
       img {
         height: 100%;
         width: 100%;
@@ -33,12 +35,15 @@
       top: 5rem;
       left: 5rem;
       color: white;
+
       .title {
         font-size: 2.5rem;
       }
+
       .meta {
         font-size: 1.2rem;
       }
+
       .description {
         font-size: 1.2rem;
       }
