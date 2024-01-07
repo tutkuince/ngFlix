@@ -8,16 +8,20 @@ import {HttpClient} from "@angular/common/http";
 })
 export class SliderComponent implements OnInit {
 
+  movies: any;
+
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
+    this.getPopularMovies();
+  }
+
+  getPopularMovies() {
     this.http.get(
       "https://api.themoviedb.org/3/movie/popular?api_key=b337195cb1a3c75cde02b2b49fcf4ef1"
     ).subscribe(data => {
-      console.log(data);
-    })
+      this.movies = data;
+    });
   }
-
-
 }
