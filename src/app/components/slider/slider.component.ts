@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {MoviesService} from "../../services/movies.service";
 
 @Component({
@@ -6,20 +6,9 @@ import {MoviesService} from "../../services/movies.service";
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })
-export class SliderComponent implements OnInit {
-
-  movies: any;
-
+export class SliderComponent {
   constructor(private moviesService: MoviesService) {
   }
-
-  ngOnInit(): void {
-    this.getPopularMovies();
-  }
-
-  getPopularMovies() {
-   this.moviesService.getPopularMovies().subscribe(data => {
-      this.movies = data;
-    });
-  }
+  // $ suffix means this is Observable<Object>
+  movies$ = this.moviesService.getPopularMovies();
 }
