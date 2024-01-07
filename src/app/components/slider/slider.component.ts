@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-slider',
@@ -8,5 +8,16 @@ import { HttpClient } from "@angular/common/http";
 })
 export class SliderComponent implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
+
+  ngOnInit(): void {
+    this.http.get(
+      "https://api.themoviedb.org/3/movie/popular?api_key=b337195cb1a3c75cde02b2b49fcf4ef1"
+    ).subscribe(data => {
+      console.log(data);
+    })
+  }
+
+
 }
