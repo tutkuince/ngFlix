@@ -11,6 +11,4 @@ export class SliderComponent {
   }
   // $ suffix means this is Observable<Object>
   movies$ = this.moviesService.getPopularMovies();
-
-  items = ["a", "b", "c"];
 }
