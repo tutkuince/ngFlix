@@ -4,12 +4,14 @@ import { MoviesDto } from '../types/movie';
 
 @Injectable()
 export class MoviesService {
+  private apiUrl: string = "https://api.themoviedb.org/3";
+  private apiKey: string = "b337195cb1a3c75cde02b2b49fcf4ef1";
 
   constructor(private http: HttpClient) { }
 
   getPopularMovies() {
     return this.http.get<MoviesDto>(
-      "https://api.themoviedb.org/3/movie/popular?api_key=b337195cb1a3c75cde02b2b49fcf4ef1"
+      `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`
     )
   }
 }
